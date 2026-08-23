@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-        stage("test") {
+       stage("test ") {
             steps {
 		withSonarQubeEnv(installationName: 'sonar' , credentialsId: 'sqube') {
                 sh '''
