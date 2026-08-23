@@ -29,7 +29,9 @@ pipeline {
         
 	stage("Quality-Gate") {
 	   steps {
-	     waitForQualityGate abortPipeline: true, credentialsId: 'sqube'
+	     timeout(time: 5, unit: 'SECONDS')	{
+     waitForQualityGate abortPipeline: true, credentialsId: 'sqube'
+	}
 	}
 	}
 
