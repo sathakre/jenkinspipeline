@@ -17,14 +17,14 @@ pipeline {
 
         stage("test") {
             steps {
+		withSonarQubeEnv(installationName: 'sonar' , credentialsId: 'sqube') {
                 sh '''
                     /opt/apache-maven-3.9.16/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
                     -Dsonar.projectKey=pipeline \
                     -Dsonar.projectName=pipeline \
-                    -Dsonar.host.url=http://18.234.155.96:9000 \
-                    -Dsonar.token=sqp_efc9f9390bb0530130ea5d8ac1f8bfca729aadc0
                 '''
             }
+	}
         }
 
         stage("deploy") {
