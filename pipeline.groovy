@@ -29,7 +29,7 @@ pipeline {
         
 	stage("Quality-Gate") {
 	   steps {
-	     waitForQualityGate abortPipeline: false, credentialsId: 'sqube'
+	     waitForQualityGate abortPipeline: true, credentialsId: 'sqube'
 	}
 	}
 
