@@ -15,7 +15,7 @@ pipeline {
         
         stage ("test"){
             steps {
-               sh ''' sudo -u jenkins /opt/apache-maven-3.9.16/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar   
+               sh ''' sudo -u jenkins /opt/apache-maven-3.9.16/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \  
                      -Dsonar.projectKey=pipeline \ 
                      -Dsonar.projectName='pipeline' \   
                      -Dsonar.host.url=http://54.198.6.54:9000 \   
